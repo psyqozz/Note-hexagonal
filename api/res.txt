@@ -28,4 +28,4 @@ Feature: Creating a note
 
 4 scenarios (4 passed)
 12 steps (12 passed)
-0m00.004s
+0m00.002s

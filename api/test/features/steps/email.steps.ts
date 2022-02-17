@@ -10,7 +10,7 @@ Given('An email written to {string} from {string} with title {string} containing
 });
 
 When('I send the email', function () {
-    let notification: Notification = {
+    const notification: Notification = {
         sendMail: (email: EmailModel) => {
             return "Success";
         }
@@ -19,6 +19,6 @@ When('I send the email', function () {
     // Write code here that turns the phrase above into concrete actions
 });
  
-Then('I received a {string} status', function (expected: string) {
-    expect(this.emailService.sendMail(this.emailModel)).to.equals(expected);
+Then('I received a {string} status', function (message: string) {
+    expect(this.emailService.sendMail(this.emailModel)).to.equals(message);
 });

@@ -11,7 +11,7 @@ Given('Writing a note by {string} with {string}', function (author: string, cont
 });
 
 When('I save the note', function () {
-    let noteRepository: NoteRepository = {
+    const noteRepository: NoteRepository = {
         saveNote: (note: NoteModel) => {
             return "Success";
         }
@@ -20,6 +20,6 @@ When('I save the note', function () {
     // Write code here that turns the phrase above into concrete actions
 });
  
-Then('I received a {string} message', function (expected: string) {
-    expect(this.noteService.createNote(this.noteModel)).to.equals(expected);
+Then('I received a {string} message', function (message: string) {
+    expect(this.noteService.createNote(this.noteModel)).to.equals(message);
 });

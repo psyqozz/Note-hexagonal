@@ -7,3 +7,13 @@ const options = [
   ]
   
   exports.profile = options.join(' ')
+
+  const options = [
+    'test/features/*', // feature filter
+    '--require test/features/api/*.ts',
+    '--require-module ts-node/register',
+    '--format node_modules/cucumber-pretty:res.txt',
+    '--tags "not @wip"',
+  ]
+  
+  exports.profileApi = options.join(' ')

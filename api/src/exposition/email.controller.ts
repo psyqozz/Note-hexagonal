@@ -1,4 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { EmailModel } from '../domain/email.model';
 import { EmailService } from '../domain/email.service';
 import { NoteModel } from '../domain/note.model';
@@ -8,7 +9,8 @@ export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
   @Post()
-  createNote(@Body() email: EmailModel): void {
-    return this.emailService.sendMail(new EmailModel(email.from, email.to, email.title, email.note));
+  createNote(@Body() email: EmailModel, @Res() response: Response): void {
+    const statut = this.emailService.sendMail(new EmailModel(email.from, email.to, email.title, email.note));
+    response.status(HttpStatus.CREATED).send(statut);
   }
 }
