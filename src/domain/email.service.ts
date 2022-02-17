@@ -11,6 +11,8 @@ export class EmailService {
         this.notificationAdapter =  notificationAdapter;
     }
     sendMail(email: EmailModel){
-        this.notificationAdapter.sendMail(email);
+        
+        return this.notificationAdapter.sendMail(email);
     }
+    
 }

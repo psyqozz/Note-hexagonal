@@ -7,9 +7,7 @@ import { expect } from 'chai'
 
 Given('Writing a note by {string} with {string}', function (author: string, content: string) {
     // Write code here that turns the phrase above into concrete actions
-    this.author = author;
-    this.content = content;
-    this.noteModel = new NoteModel(this.author, this.content, new Date());
+    this.noteModel = new NoteModel(author, content, new Date());
 });
 
 When('I save the note', function () {

@@ -14,7 +14,7 @@ export class NoteService {
         const isUseable = note.verify()
 
         if(!isUseable){
-            throw new Error("Cannot create empty note")
+            return"Cannot create empty note"
         }
 
         return this.noteRepositoryAdapter.saveNote(note);
