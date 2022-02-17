@@ -1,13 +1,13 @@
-import { Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { NoteModel } from 'src/domain/note.model';
 import { NoteService } from '../domain/note.service';
 
-@Controller()
+@Controller('note')
 export class NoteController {
   constructor(private readonly noteService: NoteService) {}
 
   @Post()
-  createNote(note: NoteModel): void {
-    return this.noteService.createNote(note);
+  createNote(@Body() note: NoteModel): void {
+    return this.noteService.createNote(new NoteModel(note.author, note.content, note.createdAt));
   }
 }

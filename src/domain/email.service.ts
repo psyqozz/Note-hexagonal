@@ -1,7 +1,16 @@
+import { Injectable } from "@nestjs/common";
+import { NotificationAdapter } from "src/infrastructure/notification.adapter";
 import { EmailModel } from "./email.model";
 
+@Injectable()
 export class EmailService {
-    sendMail(email: EmailModel){
 
+    private notificationAdapter;
+
+    constructor(notificationAdapter: NotificationAdapter){
+        this.notificationAdapter =  notificationAdapter;
+    }
+    sendMail(email: EmailModel){
+        this.notificationAdapter.sendMail(email);
     }
 }
