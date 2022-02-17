@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { NoteModel } from 'src/domain/note.model';
+import { NoteModel } from '../domain/note.model';
 import { NoteService } from '../domain/note.service';
 
 @Controller('note')

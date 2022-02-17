@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { EmailModel } from 'src/domain/email.model';
-import { EmailService } from 'src/domain/email.service';
-import { NoteModel } from 'src/domain/note.model';
+import { EmailModel } from '../domain/email.model';
+import { EmailService } from '../domain/email.service';
+import { NoteModel } from '../domain/note.model';
 
 @Controller('email')
 export class EmailController {

@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { NotificationAdapter } from "src/infrastructure/notification.adapter";
+import { NotificationAdapter } from "../infrastructure/notification.adapter";
 import { EmailModel } from "./email.model";
 
 @Injectable()

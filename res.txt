@@ -1,0 +1,11 @@
+Feature: Creating a note
+
+  @FullNote
+  Scenario Outline: Creates a fully completed note
+    Given Writing a note by "Dylan" with "yes"
+    When I save the note
+    Then I received a "Success" message
+
+1 scenario (1 passed)
+3 steps (3 passed)
+0m00.000s
