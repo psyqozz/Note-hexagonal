@@ -7,5 +7,6 @@ export class NotificationAdapter implements Notification{
 
     public sendMail(email: EmailModel){
         console.log(email);
+        return "Success";
     }
 }

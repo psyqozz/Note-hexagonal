@@ -7,5 +7,6 @@ export class NoteRepositoryAdapter implements NoteRepository {
 
     public saveNote(note: NoteModel){
         console.log(note);
+        return "Success";
     }
 }
