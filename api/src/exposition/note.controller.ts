@@ -7,7 +7,7 @@ export class NoteController {
   constructor(private readonly noteService: NoteService) {}
 
   @Post()
-  createNote(@Body() note: NoteModel): void {
+  createNote(@Body() note: NoteModel): string|void {
     return this.noteService.createNote(new NoteModel(note.author, note.content, note.createdAt));
   }
 }
