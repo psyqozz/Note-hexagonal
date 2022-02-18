@@ -1,12 +1,19 @@
 import { Injectable } from "@nestjs/common";
-import { NoteModel } from "../domain/note.model";
-import { NoteRepository } from "../domain/note.repository";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from 'typeorm';
+
+import { NoteModel } from "../domain/models/note.model";
+import { NoteRepository } from "../domain/interfaces/note.repository";
+import { NoteEntity } from "../domain/entities/note.entities";
+import { NoteRepositoryWrapper } from "./note.repository.typeorm";
 
 @Injectable()
 export class NoteRepositoryAdapter implements NoteRepository {
-
+    constructor(@InjectRepository(NoteEntity) private readonly noteEntityRepository: Repository<NoteEntity>) {}
+    
     public saveNote(note: NoteModel){
-        console.log(note);
+        this.noteEntityRepository.save(note)
+
         return "Success";
     }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { NoteRepositoryAdapter } from '../infrastructure/note.repository.adapter'
-import { NoteModel } from './note.model'
+import { NoteRepositoryAdapter } from '../../infrastructure/note.repository.adapter'
+import { NoteModel } from '../models/note.model'
 
 @Injectable()
 export class NoteService {

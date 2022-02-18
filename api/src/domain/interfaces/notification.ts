@@ -1,4 +1,4 @@
-import { EmailModel } from "./email.model";
+import { EmailModel } from "../models/email.model";
 
 export interface Notification {
 

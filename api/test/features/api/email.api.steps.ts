@@ -3,9 +3,9 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { expect } from 'chai'
 import * as request from 'supertest';
 
-import { NoteModel } from '../../../src/domain/note.model';
-import { NoteService } from '../../../src/domain/note.service';
-import { NoteRepository } from '../../../src/domain/note.repository';
+import { NoteModel } from '../../../src/domain/models/note.model';
+import { NoteService } from '../../../src/domain/services/note.service';
+import { NoteRepository } from '../../../src/domain/interfaces/note.repository';
 import { AppModule } from '../../../src/exposition/app.module';
 
 
