@@ -21,9 +21,16 @@ Examples:
 | "" |  "no" | "Cannot create empty note" |
 | "Théo" |  "" | "Cannot create empty note" |
 
-
-@wip
+@api
+@PostNote
 Scenario Outline: Testing post request 
-Given: Writing a note by <author> with <content>
+Given Writing a note by <author> with <content>
 When I submit the note
 Then I received a <message> message
+
+Examples:
+| author | content | message |
+| "TEnzo" |  "salut c'est moi" | "Success" |
+| "" |  "salut c'est moi" | "Cannot create empty note" |
+| "TEnzo" |  "" | "Cannot create empty note" |
+

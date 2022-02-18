@@ -1,5 +1,5 @@
-import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
-import { Response } from 'express';
+import { Body, Controller, HttpStatus, Post, Req, Res } from '@nestjs/common';
+import { Response, Request } from 'express';
 import { NoteModel } from '../domain/note.model';
 import { NoteService } from '../domain/note.service';
 
@@ -8,8 +8,8 @@ export class NoteController {
   constructor(private readonly noteService: NoteService) {}
 
   @Post()
-  createNote(@Body() note: NoteModel, @Res() response: Response): string|void {
-    const statut = this.noteService.createNote(new NoteModel(note.author, note.content, note.createdAt));
-    response.status(HttpStatus.CREATED).send(statut);
+  createNote(@Body() note: NoteModel, @Req() request: Request, @Res() response: Response): string|void {
+    const status = this.noteService.createNote(new NoteModel(note.author, note.content, note.createdAt));
+    response.status(HttpStatus.CREATED).send(status);
   }
 }
