@@ -1,4 +1,4 @@
-import {Given, Then, When} from 'cucumber';  
+import {Given, Then, When} from '@cucumber/cucumber';  
 import { NoteModel } from '../../../src/domain/note.model';
 import { NoteService } from '../../../src/domain/note.service';
 import { NoteRepository } from '../../../src/domain/note.repository';

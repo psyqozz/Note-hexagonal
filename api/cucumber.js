@@ -2,18 +2,18 @@ const options = [
     'test/features/*', // feature filter
     '--require test/features/steps/*.ts',
     '--require-module ts-node/register',
-    '--format node_modules/cucumber-pretty:res.txt',
+    'cucumber-js -f @cucumber/pretty-formatter',
     '--tags "not @wip"',
   ]
   
   exports.profile = options.join(' ')
 
-  const options = [
+  const optionsApi = [
     'test/features/*', // feature filter
     '--require test/features/api/*.ts',
     '--require-module ts-node/register',
-    '--format node_modules/cucumber-pretty:res.txt',
+    'cucumber-js -f @cucumber/pretty-formatter',
     '--tags "not @wip"',
   ]
   
-  exports.profileApi = options.join(' ')
+  exports.profileApi = optionsApi.join(' ')

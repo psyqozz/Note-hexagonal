@@ -1,4 +1,4 @@
-import {Given, Then, When} from 'cucumber';  
+import {Given, Then, When} from '@cucumber/cucumber';  
 import { Notification } from '../../../src/domain/notification';
 import { expect } from 'chai'
 import { EmailModel } from '../../../src/domain/email.model';

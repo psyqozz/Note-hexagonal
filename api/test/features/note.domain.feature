@@ -16,14 +16,14 @@ Scenario Outline: Creates an incomplete note
   When I save the note
   Then I received a <message> message
 
-@PostNote
-Scenario Outline: Testing post request 
-Given: Writing a note by <author> with <content>
-When I submit the note
-Then I received a <message> message
-
 Examples:
 | author | content | message |
 | "" |  "no" | "Cannot create empty note" |
 | "Théo" |  "" | "Cannot create empty note" |
 
+
+@wip
+Scenario Outline: Testing post request 
+Given: Writing a note by <author> with <content>
+When I submit the note
+Then I received a <message> message
