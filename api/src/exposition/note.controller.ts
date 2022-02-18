@@ -8,7 +8,7 @@ export class NoteController {
   constructor(private readonly noteService: NoteService) {}
 
   @Post()
-  createNote(@Body() note: NoteModel, @Req() request: Request, @Res() response: Response): string|void {
+  createNote(@Body() note: NoteModel, @Res() response: Response): string|void {
     const status = this.noteService.createNote(new NoteModel(note.author, note.content, note.createdAt));
     response.status(HttpStatus.CREATED).send(status);
   }
