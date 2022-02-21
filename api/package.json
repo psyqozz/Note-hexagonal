@@ -25,6 +25,7 @@
   "dependencies": {
     "@cucumber/pretty-formatter": "^1.0.0-alpha.1",
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^1.2.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.3",
