@@ -11,23 +11,22 @@ import { EmailService } from '../domain/services/email.service';
 import { NoteRepositoryAdapter } from '../infrastructure/note.repository.adapter';
 import { NotificationAdapter } from '../infrastructure/notification.adapter';
 import { NoteModule } from '../infrastructure/note.module';
+import { ConfigModule } from '@nestjs/config';
+import configuration from '../config/configuration';
 
-console.log('process.env.DB_USER :>> ', process.env.DB_USER);
-console.log('process.env.DB_HOST :>> ', process.env.DB_HOST);
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [configuration],
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      // host: process.env.DB_HOST,
-      // port: parseInt(process.env.DB_PORT, 10),
-      // username: process.env.DB_USER,
-      // password: process.env.DB_PASSWORD,
-      // database: process.env.DB_NAME,
-      host: 'db',
-      port: 5432,
-      username: 'noteUser',
-      password: 'bigpassword',
-      database: 'gonote',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT, 10),
+      username: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       entities: [NoteEntity],
       synchronize: true,
     }),
