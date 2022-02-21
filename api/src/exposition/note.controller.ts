@@ -1,4 +1,4 @@
-import { Body, Controller, HttpStatus, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Post, Req, Res } from '@nestjs/common';
 import { Response, Request } from 'express';
 import { NoteModel } from '../domain/models/note.model';
 import { NoteService } from '../domain/services/note.service';
@@ -12,4 +12,10 @@ export class NoteController {
     const status = this.noteService.createNote(new NoteModel(note.author, note.content, note.createdAt));
     response.status(HttpStatus.CREATED).send(status);
   }
+  @Get()
+  async getAll(@Res() response: Response) {
+    const notes = await this.noteService.getAll();
+    response.status(HttpStatus.OK).send(notes);
+  }
+
 }

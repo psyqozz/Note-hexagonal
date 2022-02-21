@@ -19,4 +19,9 @@ export class NoteService {
 
         return this.noteRepositoryAdapter.saveNote(note);
     }
+    getAll() {
+        return this.noteRepositoryAdapter.getAll();
+    }
+
+    
 }

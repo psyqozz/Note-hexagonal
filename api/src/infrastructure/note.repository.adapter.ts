@@ -18,4 +18,7 @@ export class NoteRepositoryAdapter implements NoteRepository {
 
     return 'Success';
   }
+  public getAll() {
+    return this.noteEntityRepository.find();
+  }
 }
