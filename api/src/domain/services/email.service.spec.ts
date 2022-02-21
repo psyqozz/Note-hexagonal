@@ -1,7 +1,7 @@
-import { EmailModel } from './email.model';
+import { EmailModel } from '../models/email.model';
 import { EmailService } from './email.service'
-import { NoteModel } from './note.model';
-import { Notification } from './notification';
+import { NoteModel } from '../models/note.model';
+import { Notification } from '../interfaces/notification';
 
 const completeEmail = new EmailModel('me', 'you', 'title', new NoteModel("yes",'pog', new Date()))
 

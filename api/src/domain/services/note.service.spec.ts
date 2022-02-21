@@ -1,6 +1,6 @@
 import { NoteService } from './note.service'
-import { NoteModel } from './note.model';
-import { NoteRepository } from './note.repository';
+import { NoteModel } from '../models/note.model';
+import { NoteRepository } from '../interfaces/note.repository';
 
 const completeNote = new NoteModel("yes",'pog', new Date())
 

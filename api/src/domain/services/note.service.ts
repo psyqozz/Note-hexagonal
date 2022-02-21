@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { NoteRepositoryAdapter } from '../infrastructure/note.repository.adapter'
-import { NoteModel } from './note.model'
+import { NoteRepositoryAdapter } from '../../infrastructure/note.repository.adapter'
+import { NoteModel } from '../models/note.model'
 
 @Injectable()
 export class NoteService {
@@ -19,4 +19,9 @@ export class NoteService {
 
         return this.noteRepositoryAdapter.saveNote(note);
     }
+    getAll() {
+        return this.noteRepositoryAdapter.getAll();
+    }
+
+    
 }

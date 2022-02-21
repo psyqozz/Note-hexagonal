@@ -9,12 +9,12 @@ import { NoteRepository } from '../../../src/domain/interfaces/note.repository';
 import { AppModule } from '../../../src/exposition/app.module';
 
 
-Given('Writing a note by {string} with {string}', function (author: string, content: string) {
+Given('An email written to {string} from {string} with title {string} containing a note', function (to: string, from: string, title: string) {
     // Write code here that turns the phrase above into concrete actions
-    this.payload = {"author": author, "content": content, "createdAt": new Date()}
+    this.payload = {"from":from, "to":to, "title":title}
 });
 
-When('I submit the note',  async function ()  {
+When('I submit the email',  async function ()  {
     const moduleFixture: TestingModule = await Test.createTestingModule({
         imports: [AppModule],
       }).compile();
@@ -23,14 +23,14 @@ When('I submit the note',  async function ()  {
 
       await app.init();
     
-    this.noteRequest = request(app.getHttpServer())
-        .post('/note')
+    this.emailRequest = request(app.getHttpServer())
+        .post('/email')
         .send(this.payload)
 });
  
-Then('I received a {string} message', function (message: string) {
+Then('I received a {string} response', function (message: string) {
 
-    this.noteRequest.end((err, res) => {
+    this.emailRequest.end((err, res) => {
         expect(res.text).to.equals(message)
     })
     
